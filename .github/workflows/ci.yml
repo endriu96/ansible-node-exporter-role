@@ -1,0 +1,15 @@
+name: Ansible CI
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Ansible
+        run: pip install ansible
+
+      - name: Run playbook
+        run: ansible-playbook test.yml --become
